@@ -1,3 +1,5 @@
+-- Binary columns with 0 or 1 are stored as text
+
 SELECT *
 FROM strokes
 LIMIT 5;
