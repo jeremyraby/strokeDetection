@@ -12,3 +12,22 @@ id	gender	age	hypertension	heart_disease	ever_married	work_type	residence_type	a
 60182	Female	49	0	0	Yes	Private	Urban	171.23	34.4	smokes	1
 1665	Female	79	1	0	Yes	Self-employed	Rural	174.12	24	never smoked	1
 */
+
+-- How many patients are in the database?
+SELECT COUNT(*)
+FROM strokes;
+-- 5,110
+
+-- How many patients had strokes?
+SELECT COUNT(*)
+FROM strokes
+WHERE stroke = "1";
+-- 249
+
+-- What percentage of patients had a stroke?
+SELECT 
+    ROUND(CAST(COUNT(*) AS FLOAT) / CAST((SELECT COUNT(*) FROM strokes) AS FLOAT) * 100, 2) AS percentage
+FROM strokes
+WHERE stroke = '1';
+-- 4.87%
+
